@@ -1,0 +1,3279 @@
+
+/* =========================================================
+   MAZUA SAFARIS — PREMIUM WEBSITE DESIGN SYSTEM
+   Brand: Discover Tanzania. Experience Africa.
+   ========================================================= */
+
+/* 1. DESIGN TOKENS
+========================================================= */
+
+:root {
+    --forest: #123b2d;
+    --forest-dark: #09291f;
+    --forest-light: #245541;
+    --gold: #c7a568;
+    --gold-light: #e0c58e;
+    --cream: #f8f5ed;
+    --cream-dark: #eee8dc;
+    --white: #ffffff;
+    --charcoal: #202720;
+    --text: #515b52;
+    --muted: #7c857d;
+    --border: #e6e3da;
+
+    --font-heading: Georgia, "Times New Roman", serif;
+    --font-body: Arial, Helvetica, sans-serif;
+
+    --shadow-soft: 0 12px 35px rgba(17, 43, 31, 0.08);
+    --shadow-card: 0 18px 50px rgba(17, 43, 31, 0.13);
+    --shadow-hover: 0 25px 60px rgba(17, 43, 31, 0.18);
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    --container: 1200px;
+    --transition: 0.3s ease;
+}
+
+
+/* 2. RESET AND GLOBAL STYLES
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--charcoal);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+input[type="submit"] {
+    cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+}
+
+section {
+    position: relative;
+}
+
+::selection {
+    color: var(--white);
+    background: var(--forest);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    overflow-wrap: break-word;
+}
+
+p {
+    color: var(--text);
+}
+
+button,
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+
+/* 3. SHARED BUTTONS
+========================================================= */
+
+.hero-button,
+.secondary-button,
+.nav-button,
+.text-button,
+.package-button,
+.booking-button,
+.contact-submit,
+.whatsapp-contact-button,
+.gallery-hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 50px;
+    padding: 14px 25px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-align: center;
+    text-transform: uppercase;
+    transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.hero-button,
+.nav-button,
+.booking-button,
+.contact-submit,
+.gallery-hero-button {
+    color: var(--white);
+    background: var(--forest);
+}
+
+.hero-button:hover,
+.nav-button:hover,
+.booking-button:hover,
+.contact-submit:hover,
+.gallery-hero-button:hover {
+    color: var(--forest-dark);
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+.secondary-button,
+.package-button {
+    color: var(--forest);
+    background: transparent;
+    border-color: var(--gold);
+}
+
+.secondary-button:hover,
+.package-button:hover {
+    color: var(--white);
+    background: var(--forest);
+    border-color: var(--forest);
+}
+
+.text-button {
+    min-height: auto;
+    padding: 0 0 7px;
+    color: var(--forest);
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--gold);
+    border-radius: 0;
+}
+
+.text-button:hover {
+    color: #a17d40;
+    border-color: var(--forest);
+}
+
+
+/* 4. NAVIGATION
+========================================================= */
+
+.navbar {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    padding: 20px 6%;
+    background: var(--white);
+    border-bottom: 1px solid rgba(18, 59, 45, 0.08);
+}
+
+.logo {
+    flex-shrink: 0;
+    color: var(--forest);
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    position: relative;
+    display: inline-block;
+    color: var(--charcoal);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.nav-links a:not(.nav-button)::after {
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    left: 0;
+    height: 2px;
+    content: "";
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+}
+
+.nav-links a:not(.nav-button):hover::after {
+    transform: scaleX(1);
+}
+
+.nav-links a:hover {
+    color: var(--forest);
+}
+
+.nav-links .nav-button {
+    padding: 12px 17px;
+    color: var(--white);
+}
+
+
+/* 5. HOMEPAGE HERO
+========================================================= */
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 700px;
+    padding: 100px 8%;
+    color: var(--white);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 24, 17, 0.82) 0%,
+            rgba(5, 24, 17, 0.48) 55%,
+            rgba(5, 24, 17, 0.12) 100%
+        ),
+        url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2000&q=90")
+        center 45% / cover no-repeat;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 760px;
+}
+
+.hero-small {
+    display: block;
+    margin-bottom: 25px;
+    color: var(--gold-light);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    max-width: 800px;
+    margin-bottom: 25px;
+    color: var(--white);
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    line-height: 1.02;
+    letter-spacing: -2px;
+}
+
+.hero-text {
+    max-width: 590px;
+    margin-bottom: 35px;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.08rem;
+    line-height: 1.9;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hero-buttons .secondary-button {
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.65);
+}
+
+.hero-buttons .secondary-button:hover {
+    color: var(--forest);
+    background: var(--white);
+    border-color: var(--white);
+}
+
+
+/* 6. HOMEPAGE HIGHLIGHTS
+========================================================= */
+
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    padding: 45px 8%;
+    background: var(--forest);
+}
+
+.highlight {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    min-width: 0;
+    color: var(--white);
+}
+
+.highlight-icon {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    color: var(--gold-light);
+    font-size: 1.5rem;
+    border: 1px solid rgba(224, 197, 142, 0.55);
+    border-radius: 50%;
+}
+
+.highlight h3 {
+    margin-bottom: 4px;
+    color: var(--white);
+    font-size: 1.15rem;
+}
+
+.highlight p {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.88rem;
+}
+
+
+/* 7. HOMEPAGE ABOUT SECTION
+========================================================= */
+
+.about {
+    padding: 115px 8%;
+    background: var(--cream);
+}
+
+.section-label {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #9a7941;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.about h2,
+.section-heading h2,
+.about-story h2,
+.values h2,
+.about-experiences h2,
+.destination-intro h2,
+.destination-cta h2,
+.packages-intro h2,
+.package-benefits h2,
+.packages-cta h2,
+.gallery-section-heading h2,
+.creative-gallery-intro h2,
+.gallery-feature h2,
+.contact-intro h2,
+.contact-form-wrapper h2,
+.contact-whatsapp h2,
+.contact-social h2 {
+    margin-bottom: 22px;
+    color: var(--forest);
+    font-size: clamp(2.3rem, 4.5vw, 3.7rem);
+    line-height: 1.13;
+    letter-spacing: -0.7px;
+}
+
+.about p {
+    max-width: 760px;
+    margin-bottom: 22px;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+
+/* 8. HOMEPAGE SAFARI EXPERIENCES
+========================================================= */
+
+.safaris {
+    padding: 110px 7%;
+    background: var(--white);
+}
+
+.section-heading {
+    max-width: 720px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.section-heading p {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.safari-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.safari-card {
+    position: relative;
+    min-height: 380px;
+    overflow: hidden;
+    background: var(--forest);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-soft);
+    isolation: isolate;
+}
+
+.safari-image {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.7s ease;
+}
+
+.safari-card:hover .safari-image {
+    transform: scale(1.07);
+}
+
+.serengeti {
+    background-image: url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1000&q=85");
+}
+
+.ngorongoro {
+    background-image: url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1000&q=85");
+}
+
+.tarangire {
+    background-image: url("https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=1000&q=85");
+}
+
+.manyara {
+    background-image: url("https://images.unsplash.com/photo-1516934024742-b461fba47600?auto=format&fit=crop&w=1000&q=85");
+}
+
+.kilimanjaro {
+    background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1000&q=85");
+}
+
+.zanzibar {
+    background-image: url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1000&q=85");
+}
+
+.safari-card::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    content: "";
+    background: linear-gradient(
+        to top,
+        rgba(4, 20, 13, 0.9),
+        rgba(4, 20, 13, 0.08) 75%
+    );
+}
+
+.safari-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 380px;
+    padding: 30px;
+    color: var(--white);
+}
+
+.safari-content h3 {
+    margin-bottom: 10px;
+    color: var(--white);
+    font-size: 1.8rem;
+}
+
+.safari-content p {
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.92rem;
+}
+
+
+/* 9. HOMEPAGE DESTINATIONS
+========================================================= */
+
+.destinations {
+    padding: 110px 7%;
+    background: var(--cream);
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.destination-card {
+    position: relative;
+    min-height: 410px;
+    overflow: hidden;
+    background: var(--forest);
+    border-radius: var(--radius-sm);
+    isolation: isolate;
+}
+
+.destination-image {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.7s ease;
+}
+
+.destination-card:hover .destination-image {
+    transform: scale(1.07);
+}
+
+.northern {
+    background-image: url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1000&q=85");
+}
+
+.southern {
+    background-image: url("https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=1000&q=85");
+}
+
+.zanzibar-destination {
+    background-image: url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1000&q=85");
+}
+
+.destination-card::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    content: "";
+    background: linear-gradient(
+        to top,
+        rgba(4, 20, 13, 0.9),
+        rgba(4, 20, 13, 0.04) 80%
+    );
+}
+
+.destination-overlay {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    left: 25px;
+    color: var(--white);
+}
+
+.destination-overlay h3 {
+    margin-bottom: 8px;
+    color: var(--white);
+    font-size: 1.8rem;
+}
+
+.destination-overlay p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* 10. HOMEPAGE PACKAGES
+========================================================= */
+
+.packages {
+    padding: 110px 7%;
+    background: var(--white);
+}
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.package-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 38px 30px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.package-card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-card);
+}
+
+.package-number {
+    margin-bottom: 25px;
+    color: var(--gold);
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+}
+
+.package-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.package-type {
+    margin-bottom: 10px;
+    color: #9a7941;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.package-card h3 {
+    margin-bottom: 16px;
+    color: var(--forest);
+    font-size: 1.8rem;
+}
+
+.package-card p {
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.package-card .package-button {
+    margin-top: auto;
+}
+
+.featured-package {
+    background: var(--forest);
+    border-color: var(--forest);
+}
+
+.featured-package h3,
+.featured-package p {
+    color: var(--white);
+}
+
+.featured-package .package-type {
+    color: var(--gold-light);
+}
+
+.featured-package .package-button {
+    color: var(--forest);
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+}
+
+.featured-package .package-button:hover {
+    color: var(--forest);
+    background: var(--white);
+    border-color: var(--white);
+}
+
+.custom-package {
+    border-top: 3px solid var(--gold);
+}
+
+
+/* 11. WHY CHOOSE US
+========================================================= */
+
+.why-us {
+    padding: 105px 8%;
+    color: var(--white);
+    background: var(--forest-dark);
+}
+
+.why-us-content {
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.why-us h2 {
+    max-width: 700px;
+    margin-bottom: 45px;
+    color: var(--white);
+    font-size: clamp(2.4rem, 4vw, 3.7rem);
+}
+
+.why-us-features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 35px;
+}
+
+.why-feature {
+    padding-top: 25px;
+    border-top: 1px solid rgba(224, 197, 142, 0.45);
+}
+
+.why-feature h3 {
+    margin-bottom: 12px;
+    color: var(--gold-light);
+    font-size: 1.35rem;
+}
+
+.why-feature p {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* 12. HOMEPAGE GALLERY
+========================================================= */
+
+.gallery {
+    padding: 105px 7%;
+    background: var(--cream);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 230px;
+    gap: 15px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--radius-sm);
+    transition: transform var(--transition);
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+}
+
+.gallery-one {
+    background-image: url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=900&q=85");
+}
+
+.gallery-two {
+    background-image: url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=900&q=85");
+}
+
+.gallery-three {
+    background-image: url("https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=900&q=85");
+}
+
+.gallery-four {
+    background-image: url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=85");
+}
+
+.gallery-five {
+    background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85");
+}
+
+.gallery-six {
+    background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=85");
+}
+
+
+/* 13. HOMEPAGE BOOKING FORM
+========================================================= */
+
+.booking {
+    padding: 110px 7%;
+    background: var(--cream);
+}
+
+.booking-container {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 65px;
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.booking-intro h2 {
+    margin-bottom: 22px;
+    color: var(--forest);
+    font-size: clamp(2.4rem, 4vw, 3.7rem);
+}
+
+.booking-intro > p {
+    margin-bottom: 20px;
+    line-height: 1.9;
+}
+
+.booking-note {
+    margin-top: 25px;
+    padding: 18px 20px;
+    color: var(--forest);
+    background: var(--cream-dark);
+    border-left: 3px solid var(--gold);
+    font-size: 0.9rem;
+}
+
+.booking-form-container {
+    min-width: 0;
+    padding: 42px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    min-width: 0;
+}
+
+.form-group {
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.form-group label,
+.contact-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--charcoal);
+    font-size: 0.83rem;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.contact-field input,
+.contact-field select,
+.contact-field textarea {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 49px;
+    padding: 13px 14px;
+    color: var(--charcoal);
+    background: #fcfbf8;
+    border: 1px solid #dedfd7;
+    border-radius: 4px;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-group textarea,
+.contact-field textarea {
+    min-height: 125px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.contact-field input:focus,
+.contact-field select:focus,
+.contact-field textarea:focus {
+    border-color: var(--forest-light);
+    box-shadow: 0 0 0 3px rgba(18, 59, 45, 0.08);
+    outline: none;
+}
+
+.booking-button {
+    width: 100%;
+    min-height: 55px;
+    margin-top: 5px;
+}
+
+
+/* 14. DJANGO SUCCESS AND MESSAGE ALERTS
+========================================================= */
+
+.messages {
+    position: relative;
+    z-index: 20;
+    width: min(92%, 1000px);
+    margin: 20px auto;
+}
+
+.messages li {
+    padding: 15px 20px;
+    list-style: none;
+    border-radius: 5px;
+}
+
+.messages .success,
+.messages .success-message {
+    color: #174a2d;
+    background: #e8f5e9;
+    border: 1px solid #b8dfbf;
+}
+
+.messages .error,
+.messages .danger {
+    color: #7b2424;
+    background: #fff0f0;
+    border: 1px solid #f1c1c1;
+}
+
+.messages .warning {
+    color: #73551c;
+    background: #fff7df;
+    border: 1px solid #eed99e;
+}
+
+.messages .info {
+    color: #17465e;
+    background: #eaf6fc;
+    border: 1px solid #bfdeed;
+}
+
+.success-message {
+    padding: 16px 20px;
+    border-radius: 5px;
+}
+
+
+/* 15. HOMEPAGE CONTACT SECTION
+========================================================= */
+
+.contact {
+    padding: 100px 8%;
+    color: var(--white);
+    background: var(--forest-dark);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 60px;
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.contact-intro h2 {
+    color: var(--white);
+}
+
+.contact-intro > p {
+    max-width: 550px;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    padding: 13px 22px;
+    color: var(--forest-dark);
+    background: var(--gold-light);
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: background var(--transition);
+}
+
+.whatsapp-button:hover {
+    background: var(--white);
+}
+
+.contact-details {
+    display: grid;
+    gap: 22px;
+}
+
+.contact-item {
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.contact-label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--gold-light);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.contact-item p,
+.contact-item a {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-item a:hover {
+    color: var(--gold-light);
+}
+
+
+/* 16. SHARED FOOTER
+========================================================= */
+
+.footer {
+    padding: 65px 7% 20px;
+    color: var(--white);
+    background: #061d15;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 45px;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding-bottom: 45px;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: var(--gold-light);
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+}
+
+.footer-brand p {
+    max-width: 350px;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9rem;
+}
+
+.footer-links h3 {
+    margin-bottom: 18px;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-links a {
+    display: block;
+    width: fit-content;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: var(--gold-light);
+}
+
+.footer-bottom {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   ABOUT PAGE
+========================================================= */
+
+.page-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 490px;
+    padding: 80px 7%;
+    color: var(--white);
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    isolation: isolate;
+}
+
+.page-hero::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    content: "";
+    background: rgba(5, 24, 17, 0.55);
+}
+
+.page-hero-content {
+    width: 100%;
+    max-width: 850px;
+}
+
+.page-hero h1,
+.page-hero-content h1 {
+    margin-bottom: 22px;
+    color: var(--white);
+    font-size: clamp(3rem, 6vw, 5rem);
+}
+
+.page-hero p,
+.page-hero-content p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.05rem;
+}
+
+.about-hero {
+    background-image: url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1800&q=90");
+}
+
+.about-story {
+    padding: 100px 7%;
+    background: var(--white);
+}
+
+.about-story-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    align-items: center;
+    gap: 60px;
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.about-story-text p {
+    margin-bottom: 20px;
+    line-height: 1.9;
+}
+
+.about-story-card {
+    padding: 45px;
+    background: var(--cream);
+    border-bottom: 4px solid var(--gold);
+}
+
+.about-card-number {
+    display: block;
+    margin-bottom: 20px;
+    color: var(--gold);
+    font-family: var(--font-heading);
+    font-size: 4rem;
+}
+
+.about-story-card h3 {
+    margin-bottom: 15px;
+    color: var(--forest);
+    font-size: 1.8rem;
+}
+
+.values {
+    padding: 100px 7%;
+    background: var(--cream);
+}
+
+.values > h2,
+.values > .section-label {
+    display: block;
+    max-width: var(--container);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    max-width: var(--container);
+    margin: 40px auto 0;
+}
+
+.value-card {
+    padding: 35px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-soft);
+}
+
+.value-card h3 {
+    margin-bottom: 14px;
+    color: var(--forest);
+    font-size: 1.5rem;
+}
+
+.about-experiences {
+    padding: 100px 7%;
+    background: var(--white);
+}
+
+.about-experiences-content {
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.experience-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 40px;
+    margin-top: 35px;
+}
+
+.experience-list > * {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.about-cta,
+.destination-cta,
+.packages-cta {
+    padding: 90px 7%;
+    text-align: center;
+    background: var(--forest);
+}
+
+.about-cta h2,
+.destination-cta h2,
+.packages-cta h2 {
+    color: var(--white);
+}
+
+.about-cta p,
+.destination-cta p,
+.packages-cta p {
+    max-width: 650px;
+    margin: 0 auto 28px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.about-cta .hero-button,
+.destination-cta .hero-button,
+.packages-cta .hero-button {
+    color: var(--forest-dark);
+    background: var(--gold-light);
+}
+
+.about-cta .hero-button:hover,
+.destination-cta .hero-button:hover,
+.packages-cta .hero-button:hover {
+    background: var(--white);
+}
+
+
+/* =========================================================
+   SAFARIS PAGE
+========================================================= */
+
+.safaris-hero {
+    background-image: url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1800&q=90");
+}
+
+.safari-intro,
+.destination-intro,
+.packages-intro {
+    padding: 90px 7%;
+    background: var(--cream);
+}
+
+.safari-intro-container,
+.destination-intro-container,
+.packages-intro-container {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.safari-intro-container p,
+.destination-intro-container p,
+.packages-intro-container p {
+    margin-top: 15px;
+    line-height: 1.9;
+}
+
+.safari-experiences-page {
+    padding: 100px 7%;
+    background: var(--white);
+}
+
+.safari-experience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.safari-page-card {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 390px;
+    overflow: hidden;
+    padding: 35px;
+    color: var(--white);
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--radius-sm);
+    isolation: isolate;
+}
+
+.safari-page-card::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    content: "";
+    background: linear-gradient(
+        to top,
+        rgba(5, 24, 17, 0.94),
+        rgba(5, 24, 17, 0.08)
+    );
+    transition: background var(--transition);
+}
+
+.safari-page-card:hover::before {
+    background: linear-gradient(
+        to top,
+        rgba(5, 24, 17, 0.97),
+        rgba(5, 24, 17, 0.18)
+    );
+}
+
+.safari-card-overlay {
+    width: 100%;
+}
+
+.safari-number {
+    display: block;
+    margin-bottom: 15px;
+    color: var(--gold-light);
+    font-family: var(--font-heading);
+    font-size: 2rem;
+}
+
+.safari-page-card h3 {
+    margin-bottom: 12px;
+    color: var(--white);
+    font-size: 2rem;
+}
+
+.safari-page-card p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.serengeti-card {
+    background-image: url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=85");
+}
+
+.ngorongoro-card {
+    background-image: url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=85");
+}
+
+.tarangire-card {
+    background-image: url("https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=1200&q=85");
+}
+
+.manyara-card {
+    background-image: url("https://images.unsplash.com/photo-1516934024742-b461fba47600?auto=format&fit=crop&w=1200&q=85");
+}
+
+.kilimanjaro-card {
+    background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=85");
+}
+
+.zanzibar-card {
+    background-image: url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=85");
+}
+
+.custom-safari {
+    padding: 85px 7%;
+    text-align: center;
+    background: var(--cream);
+}
+
+.custom-safari h2 {
+    margin-bottom: 18px;
+    color: var(--forest);
+    font-size: clamp(2.3rem, 4vw, 3.4rem);
+}
+
+.custom-safari p {
+    max-width: 680px;
+    margin: 0 auto 25px;
+}
+
+
+/* =========================================================
+   DESTINATIONS PAGE
+========================================================= */
+
+.destinations-hero {
+    background-image: url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1800&q=90");
+}
+
+.destination-region {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 45px;
+    max-width: var(--container);
+    margin: 0 auto 70px;
+}
+
+.destination-region:nth-child(even) .destination-region-image {
+    order: 2;
+}
+
+.destination-region-image {
+    min-height: 380px;
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--radius-sm);
+}
+
+.northern-image {
+    background-image: url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=85");
+}
+
+.southern-image {
+    background-image: url("https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=1200&q=85");
+}
+
+.zanzibar-image {
+    background-image: url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=85");
+}
+
+.destination-region-content {
+    align-self: center;
+    padding: 20px 0;
+}
+
+.destination-region-content h2 {
+    margin-bottom: 18px;
+    color: var(--forest);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.destination-region-content p {
+    margin-bottom: 18px;
+    line-height: 1.9;
+}
+
+.destination-list {
+    margin: 22px 0;
+    padding-left: 22px;
+}
+
+.destination-list li {
+    margin-bottom: 8px;
+    color: var(--text);
+}
+
+.destination-link {
+    display: inline-flex;
+    margin-top: 10px;
+    padding-bottom: 5px;
+    color: var(--forest);
+    border-bottom: 1px solid var(--gold);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.destination-link:hover {
+    color: #9a7941;
+}
+
+.culture-section {
+    padding: 90px 7%;
+    background: var(--cream);
+}
+
+.culture-content {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.culture-content h2 {
+    margin-bottom: 20px;
+    color: var(--forest);
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+}
+
+.culture-content p {
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   PACKAGES PAGE
+========================================================= */
+
+.packages-hero {
+    background-image: url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1800&q=90");
+}
+
+.packages-section {
+    padding: 100px 7%;
+    background: var(--white);
+}
+
+.packages-section .package-grid {
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.packages-section .package-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.package-image {
+    min-height: 230px;
+    background-position: center;
+    background-size: cover;
+}
+
+.package-three-day {
+    background-image: url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1000&q=85");
+}
+
+.package-five-day {
+    background-image: url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1000&q=85");
+}
+
+.package-seven-day {
+    background-image: url("https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=1000&q=85");
+}
+
+.package-custom {
+    background-image: url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1000&q=85");
+}
+
+.packages-section .package-content {
+    padding: 30px;
+}
+
+.featured-label {
+    display: inline-block;
+    align-self: flex-start;
+    margin-bottom: 18px;
+    padding: 7px 12px;
+    color: var(--forest-dark);
+    background: var(--gold-light);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.package-duration {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #9a7941;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.package-benefits {
+    padding: 90px 7%;
+    background: var(--cream);
+}
+
+.package-benefits-content {
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.benefit-grid > * {
+    padding: 25px;
+    background: var(--white);
+    border: 1px solid var(--border);
+}
+
+.benefit-grid h3 {
+    margin-bottom: 10px;
+    color: var(--forest);
+    font-size: 1.35rem;
+}
+
+
+/* =========================================================
+   CREATIVE GALLERY PAGE
+========================================================= */
+
+.creative-gallery-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 650px;
+    padding: 100px 8%;
+    color: var(--white);
+    background: var(--forest-dark);
+    isolation: isolate;
+}
+
+.gallery-hero-image {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    background:
+        url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=2000&q=90")
+        center / cover no-repeat;
+}
+
+.creative-gallery-hero::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    content: "";
+    background: linear-gradient(
+        90deg,
+        rgba(5, 24, 17, 0.82),
+        rgba(5, 24, 17, 0.2)
+    );
+}
+
+.gallery-hero-content {
+    width: 100%;
+    max-width: 800px;
+}
+
+.gallery-hero-small {
+    display: block;
+    margin-bottom: 20px;
+    color: var(--gold-light);
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.gallery-hero-content h1 {
+    margin-bottom: 25px;
+    color: var(--white);
+    font-size: clamp(3.2rem, 7vw, 6rem);
+    line-height: 1.03;
+}
+
+.gallery-hero-content p {
+    max-width: 620px;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.gallery-hero-scroll {
+    display: inline-block;
+    margin-top: 35px;
+    color: var(--gold-light);
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.creative-gallery-intro {
+    padding: 100px 7%;
+    background: var(--cream);
+}
+
+.creative-gallery-intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 60px;
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.creative-gallery-intro-text p {
+    margin-bottom: 18px;
+    line-height: 1.9;
+}
+
+.gallery-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 50px;
+    padding: 90px 7%;
+}
+
+.gallery-feature-image {
+    min-height: 440px;
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--radius-sm);
+}
+
+.gallery-feature-content h2 {
+    color: var(--forest);
+    font-size: clamp(2.3rem, 4vw, 3.5rem);
+}
+
+.gallery-feature-content p {
+    margin-bottom: 22px;
+}
+
+.gallery-outline-button {
+    display: inline-flex;
+    padding: 12px 20px;
+    color: var(--forest);
+    border: 1px solid var(--gold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.gallery-outline-button:hover {
+    color: var(--white);
+    background: var(--forest);
+}
+
+.gallery-showcase {
+    padding: 100px 7%;
+    background: var(--cream);
+}
+
+.gallery-section-heading {
+    max-width: 750px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.creative-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 260px;
+    gap: 18px;
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.creative-gallery-card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    background: var(--forest);
+    border-radius: var(--radius-sm);
+    isolation: isolate;
+}
+
+.creative-gallery-card::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    content: "";
+    background: linear-gradient(
+        to top,
+        rgba(4, 20, 13, 0.8),
+        transparent 70%
+    );
+}
+
+.card-tall {
+    grid-row: span 2;
+}
+
+.card-wide {
+    grid-column: span 2;
+}
+
+.creative-image {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.7s ease;
+}
+
+.creative-gallery-card:hover .creative-image {
+    transform: scale(1.07);
+}
+
+.image-01 {
+    background-image: url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=900&q=85");
+}
+
+.image-02 {
+    background-image: url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=900&q=85");
+}
+
+.image-03 {
+    background-image: url("https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&w=900&q=85");
+}
+
+.image-04 {
+    background-image: url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=85");
+}
+
+.image-05 {
+    background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85");
+}
+
+.image-06 {
+    background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=85");
+}
+
+.image-07 {
+    background-image: url("https://images.unsplash.com/photo-1516934024742-b461fba47600?auto=format&fit=crop&w=900&q=85");
+}
+
+.image-08 {
+    background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85");
+}
+
+.image-09 {
+    background-image: url("https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=85");
+}
+
+.image-10 {
+    background-image: url("https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=85");
+}
+
+.image-11 {
+    background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=85");
+}
+
+.image-12 {
+    background-image: url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=900&q=85");
+}
+
+.creative-card-info {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    color: var(--white);
+}
+
+.creative-card-info h3 {
+    color: var(--white);
+    font-size: 1.45rem;
+}
+
+.creative-card-info p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+}
+
+.gallery-zanzibar-feature {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 480px;
+    padding: 80px 8%;
+    color: var(--white);
+    background:
+        linear-gradient(rgba(5, 24, 17, 0.6), rgba(5, 24, 17, 0.7)),
+        url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1800&q=90")
+        center / cover no-repeat;
+}
+
+.zanzibar-feature-content {
+    max-width: 700px;
+}
+
+.zanzibar-feature-content h2 {
+    margin-bottom: 20px;
+    color: var(--white);
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+}
+
+.zanzibar-feature-content p {
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.gallery-final {
+    padding: 90px 7%;
+    background: var(--forest);
+}
+
+.gallery-final-inner {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gallery-final-inner h2 {
+    margin-bottom: 20px;
+    color: var(--white);
+    font-size: clamp(2.3rem, 4vw, 3.7rem);
+}
+
+.gallery-final-inner p {
+    margin-bottom: 28px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.gallery-final-mark {
+    display: block;
+    margin-bottom: 15px;
+    color: var(--gold-light);
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+}
+
+
+/* =========================================================
+   PREMIUM CONTACT PAGE
+========================================================= */
+
+.contact-page-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 590px;
+    padding: 100px 8%;
+    color: var(--white);
+    background:
+        linear-gradient(
+            to right,
+            rgba(5, 18, 15, 0.8),
+            rgba(5, 18, 15, 0.24)
+        ),
+        url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1800&q=90")
+        center / cover no-repeat;
+}
+
+.contact-hero-content {
+    max-width: 800px;
+}
+
+.contact-hero-label {
+    display: block;
+    margin-bottom: 22px;
+    color: var(--gold-light);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.contact-hero-content h1 {
+    margin-bottom: 25px;
+    color: var(--white);
+    font-size: clamp(3.5rem, 7vw, 6.2rem);
+    line-height: 1.02;
+    letter-spacing: -1.8px;
+}
+
+.contact-hero-content p {
+    max-width: 600px;
+    color: rgba(255, 255, 255, 0.87);
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+.contact-intro {
+    width: 100%;
+    max-width: none;
+    display: block;
+    box-sizing: border-box;
+    padding: 100px 7%;
+    overflow: hidden;
+    background: var(--cream);
+}
+
+.contact-intro::before {
+    position: absolute;
+    top: 20px;
+    right: 5%;
+    content: "MAZUA";
+    color: rgba(18, 59, 45, 0.035);
+    font-family: var(--font-heading);
+    font-size: clamp(5rem, 13vw, 12rem);
+    font-weight: 700;
+    letter-spacing: -7px;
+    pointer-events: none;
+}
+
+.contact-intro-container {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.85fr) minmax(320px, 1.15fr);
+    gap: 55px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-intro h2 {
+    color: var(--forest);
+    font-size: clamp(2.7rem, 5vw, 4rem);
+    line-height: 1.1;
+}
+
+.contact-intro-text {
+    align-self: center;
+    padding-left: 30px;
+    border-left: 3px solid var(--gold);
+}
+
+.contact-intro-text p {
+    margin-bottom: 18px;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.contact-details {
+    padding: 0 7% 100px;
+    background: var(--cream);
+}
+
+.contact-details-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-detail-card {
+    position: relative;
+    min-width: 0;
+    padding: 35px 30px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.contact-detail-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card);
+}
+
+.contact-detail-card::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    content: "";
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+}
+
+.contact-detail-card:hover::after {
+    transform: scaleX(1);
+}
+
+.contact-detail-number {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    color: rgba(18, 59, 45, 0.1);
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+}
+
+.contact-detail-icon {
+    display: grid;
+    place-items: center;
+    width: 55px;
+    height: 55px;
+    margin-bottom: 25px;
+    color: var(--forest);
+    background: var(--cream);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    font-size: 1.25rem;
+}
+
+.contact-detail-card h3 {
+    margin-bottom: 12px;
+    color: var(--forest);
+    font-size: 1.35rem;
+}
+
+.contact-detail-card p,
+.contact-detail-card a {
+    color: var(--text);
+    font-size: 0.93rem;
+    overflow-wrap: anywhere;
+}
+
+.contact-detail-card a:hover {
+    color: #9a7941;
+}
+
+.contact-form-section {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 0;
+    padding: 100px 7%;
+    background: var(--white);
+}
+
+.contact-form-image {
+    position: relative;
+    min-height: 650px;
+    background:
+        linear-gradient(to top, rgba(5, 24, 17, 0.7), transparent 65%),
+        url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=90")
+        center / cover no-repeat;
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+.contact-image-overlay {
+    position: absolute;
+    right: 35px;
+    bottom: 40px;
+    left: 35px;
+}
+
+.contact-image-overlay span {
+    display: block;
+    margin-bottom: 15px;
+    color: var(--gold-light);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.contact-image-overlay h2 {
+    color: var(--white);
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: 1.1;
+}
+
+.contact-form-wrapper {
+    min-width: 0;
+    padding: 50px 40px;
+    background: var(--cream);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.contact-form-wrapper h2 {
+    font-size: clamp(2.3rem, 4vw, 3.3rem);
+}
+
+.contact-form-intro {
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.contact-form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.contact-field {
+    min-width: 0;
+    margin-bottom: 20px;
+}
+
+.contact-field input,
+.contact-field select,
+.contact-field textarea {
+    background: var(--white);
+}
+
+.contact-submit {
+    width: 100%;
+    min-height: 56px;
+    margin-top: 10px;
+}
+
+.contact-booking-form {
+    width: 100%;
+    max-width: 100%;
+}
+
+.contact-booking-form .form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.contact-booking-form .form-group {
+    min-width: 0;
+    margin-bottom: 18px;
+}
+
+.contact-booking-form input,
+.contact-booking-form select,
+.contact-booking-form textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-booking-form .contact-submit {
+    width: 100%;
+}
+
+.contact-whatsapp {
+    padding: 95px 7%;
+    color: var(--white);
+    background: var(--forest);
+}
+
+.contact-whatsapp-content {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 35px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-whatsapp-icon {
+    display: grid;
+    place-items: center;
+    width: 75px;
+    height: 75px;
+    color: var(--forest-dark);
+    background: var(--gold-light);
+    border-radius: 50%;
+    font-size: 1.8rem;
+}
+
+.contact-whatsapp h2 {
+    margin-bottom: 15px;
+    color: var(--white);
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+}
+
+.contact-whatsapp p {
+    max-width: 580px;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.whatsapp-contact-button {
+    grid-column: auto;
+    justify-self: end;
+    color: var(--forest-dark);
+    background: var(--gold-light);
+    white-space: normal;
+}
+
+.whatsapp-contact-button:hover {
+    color: var(--forest);
+    background: var(--white);
+}
+
+.contact-social {
+    position: relative;
+    padding: 90px 7%;
+    overflow: hidden;
+    background: var(--cream);
+}
+
+.contact-social::before {
+    position: absolute;
+    top: 0;
+    right: 4%;
+    content: "CONNECT";
+    color: rgba(18, 59, 45, 0.035);
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 700;
+    letter-spacing: -5px;
+    pointer-events: none;
+}
+
+.contact-social-inner {
+    position: relative;
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-social h2 {
+    font-size: clamp(2.3rem, 4.5vw, 3.7rem);
+}
+
+.contact-social p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 22px;
+    color: var(--forest);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.social-links a:hover {
+    color: var(--white);
+    background: var(--forest);
+    border-color: var(--forest);
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET LAYOUT
+========================================================= */
+
+@media (max-width: 1050px) {
+    .navbar {
+        gap: 16px;
+        padding-right: 4%;
+        padding-left: 4%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 0.7rem;
+    }
+
+    .hero {
+        min-height: 620px;
+    }
+
+    .booking-container {
+        gap: 35px;
+    }
+
+    .contact-form-section {
+        padding: 75px 5%;
+    }
+
+    .contact-form-wrapper {
+        padding: 40px 30px;
+    }
+
+    .contact-intro-container {
+        gap: 35px;
+    }
+
+    .contact-whatsapp-content {
+        grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .whatsapp-contact-button {
+        grid-column: 2;
+        justify-self: start;
+    }
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 18px 5%;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 20px;
+    }
+
+    .hero {
+        min-height: 570px;
+        padding: 85px 6%;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.2rem, 8vw, 5rem);
+    }
+
+    .highlights {
+        gap: 25px;
+        padding: 35px 5%;
+    }
+
+    .highlight {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .highlight-icon {
+        width: 43px;
+        height: 43px;
+        font-size: 1.2rem;
+    }
+
+    .safari-grid,
+    .destination-grid,
+    .package-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .why-us-features,
+    .values-grid,
+    .benefit-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .booking-container,
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .booking-form-container {
+        padding: 35px;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-story-container {
+        gap: 35px;
+    }
+
+    .destination-region {
+        gap: 30px;
+    }
+
+    .contact-intro-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .contact-intro-text {
+        padding-left: 22px;
+    }
+
+    .contact-details-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-form-section {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-image {
+        min-height: 420px;
+        border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    }
+
+    .contact-form-wrapper {
+        border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    }
+
+    .creative-gallery-grid {
+        grid-auto-rows: 220px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE MOBILE LAYOUT
+========================================================= */
+
+@media (max-width: 750px) {
+    .navbar {
+        gap: 18px;
+    }
+
+    .nav-links {
+        gap: 12px 15px;
+    }
+
+    .nav-links a {
+        font-size: 0.72rem;
+    }
+
+    .hero {
+        min-height: 550px;
+        padding: 75px 6%;
+        background-position: 60% center;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.8rem, 10vw, 4.5rem);
+        letter-spacing: -1px;
+    }
+
+    .hero-text {
+        font-size: 0.98rem;
+    }
+
+    .highlights {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 35px 7%;
+    }
+
+    .about,
+    .safaris,
+    .destinations,
+    .packages,
+    .gallery,
+    .booking,
+    .why-us {
+        padding: 75px 6%;
+    }
+
+    .section-heading {
+        margin-bottom: 35px;
+    }
+
+    .safari-grid,
+    .destination-grid,
+    .package-grid,
+    .why-us-features,
+    .values-grid,
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .safari-card,
+    .safari-content {
+        min-height: 340px;
+    }
+
+    .destination-card {
+        min-height: 350px;
+    }
+
+    .gallery-grid {
+        grid-auto-rows: 190px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .booking-form-container {
+        padding: 28px 22px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-story,
+    .values,
+    .about-experiences,
+    .safari-experiences-page,
+    .packages-section {
+        padding: 75px 6%;
+    }
+
+    .about-story-container,
+    .destination-region,
+    .experience-list,
+    .safari-experience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-region:nth-child(even) .destination-region-image {
+        order: initial;
+    }
+
+    .destination-region-image {
+        min-height: 300px;
+    }
+
+    .page-hero {
+        min-height: 390px;
+        padding: 70px 6%;
+    }
+
+    .safari-page-card {
+        min-height: 330px;
+    }
+
+    .creative-gallery-hero {
+        min-height: 530px;
+        padding: 80px 6%;
+    }
+
+    .creative-gallery-intro,
+    .gallery-showcase {
+        padding: 75px 6%;
+    }
+
+    .creative-gallery-intro-grid,
+    .gallery-feature {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .gallery-feature {
+        padding: 70px 6%;
+    }
+
+    .gallery-feature-image {
+        min-height: 320px;
+    }
+
+    .creative-gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 200px;
+        gap: 12px;
+    }
+
+    .card-tall {
+        grid-row: span 2;
+    }
+
+    .card-wide {
+        grid-column: span 2;
+    }
+
+    .gallery-zanzibar-feature {
+        min-height: 400px;
+        padding: 65px 6%;
+    }
+
+    .contact-page-hero {
+        min-height: 510px;
+        padding: 80px 6%;
+        background-position: center;
+    }
+
+    .contact-hero-content h1 {
+        font-size: clamp(3rem, 10vw, 4.5rem);
+    }
+
+    .contact-intro {
+        padding: 80px 6%;
+    }
+
+    .contact-intro-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 25px;
+    }
+
+    .contact-intro-text {
+        padding-left: 20px;
+    }
+
+    .contact-details {
+        padding: 0 6% 80px;
+    }
+
+    .contact-details-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .contact-detail-card {
+        padding: 35px 28px;
+    }
+
+    .contact-form-section {
+        padding: 75px 5%;
+    }
+
+    .contact-form-image {
+        min-height: 380px;
+    }
+
+    .contact-image-overlay {
+        right: 28px;
+        bottom: 30px;
+        left: 28px;
+    }
+
+    .contact-image-overlay h2 {
+        font-size: 2.8rem;
+    }
+
+    .contact-form-wrapper {
+        padding: 45px 28px;
+    }
+
+    .contact-form-row,
+    .contact-booking-form .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-bottom: 0;
+    }
+
+    .contact-form-row .contact-field,
+    .contact-booking-form .form-group {
+        margin-bottom: 20px;
+    }
+
+    .contact-whatsapp {
+        padding: 70px 6%;
+    }
+
+    .contact-whatsapp-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+    }
+
+    .contact-whatsapp-icon {
+        margin: 0 auto;
+    }
+
+    .contact-whatsapp p {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .whatsapp-contact-button {
+        grid-column: auto;
+        justify-self: center;
+    }
+
+    .contact-social {
+        padding: 75px 6%;
+    }
+
+    .social-links {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .social-links a {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 16px 4%;
+    }
+
+    .logo {
+        font-size: 1.45rem;
+    }
+
+    .nav-links {
+        gap: 10px 12px;
+    }
+
+    .nav-links a {
+        font-size: 0.68rem;
+    }
+
+    .nav-links .nav-button {
+        padding: 10px 12px;
+    }
+
+    .hero {
+        min-height: 520px;
+        padding: 65px 5%;
+        background-position: 58% center;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.65rem, 12vw, 3.8rem);
+    }
+
+    .hero-small {
+        font-size: 0.65rem;
+        letter-spacing: 2.5px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+    }
+
+    .about,
+    .safaris,
+    .destinations,
+    .packages,
+    .gallery,
+    .booking,
+    .why-us {
+        padding: 65px 5%;
+    }
+
+    .about h2,
+    .section-heading h2,
+    .about-story h2,
+    .values h2,
+    .about-experiences h2,
+    .destination-intro h2,
+    .destination-cta h2,
+    .packages-intro h2,
+    .package-benefits h2,
+    .packages-cta h2,
+    .gallery-section-heading h2,
+    .creative-gallery-intro h2,
+    .gallery-feature h2,
+    .contact-intro h2,
+    .contact-form-wrapper h2,
+    .contact-whatsapp h2,
+    .contact-social h2 {
+        font-size: 2.3rem;
+    }
+
+    .safari-content {
+        padding: 25px;
+    }
+
+    .package-card {
+        padding: 30px 24px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 150px;
+        gap: 10px;
+    }
+
+    .booking-form-container {
+        padding: 25px 18px;
+    }
+
+    .page-hero {
+        min-height: 350px;
+    }
+
+    .page-hero h1,
+    .page-hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .about-story-card {
+        padding: 30px 24px;
+    }
+
+    .values-grid,
+    .benefit-grid {
+        gap: 15px;
+    }
+
+    .value-card {
+        padding: 27px 23px;
+    }
+
+    .safari-page-card {
+        min-height: 300px;
+        padding: 25px;
+    }
+
+    .destination-intro,
+    .packages-intro,
+    .safari-intro {
+        padding: 65px 5%;
+    }
+
+    .destination-region-image {
+        min-height: 250px;
+    }
+
+    .creative-gallery-hero {
+        min-height: 480px;
+        padding: 70px 5%;
+    }
+
+    .gallery-hero-content h1 {
+        font-size: clamp(2.7rem, 12vw, 3.8rem);
+    }
+
+    .creative-gallery-intro,
+    .gallery-showcase {
+        padding: 65px 5%;
+    }
+
+    .creative-gallery-grid {
+        grid-auto-rows: 165px;
+        gap: 9px;
+    }
+
+    .creative-card-info {
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+    }
+
+    .creative-card-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .creative-card-info p {
+        font-size: 0.75rem;
+    }
+
+    .contact-page-hero {
+        min-height: 570px;
+        padding: 85px 18px;
+        background-image:
+            linear-gradient(
+                to bottom,
+                rgba(5, 18, 15, 0.50),
+                rgba(5, 18, 15, 0.92)
+            ),
+            url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=900&q=85");
+        background-position: center;
+    }
+
+    .contact-hero-label {
+        font-size: 0.62rem;
+        letter-spacing: 2px;
+    }
+
+    .contact-hero-content h1 {
+        font-size: clamp(2.65rem, 13vw, 3.8rem);
+        line-height: 1;
+        letter-spacing: -1.8px;
+    }
+
+    .contact-hero-content p {
+        font-size: 0.94rem;
+        line-height: 1.65;
+    }
+
+    .contact-intro {
+        padding: 70px 6%;
+    }
+
+    .contact-intro::before {
+        top: 20px;
+        font-size: 4rem;
+    }
+
+    .contact-intro .section-label,
+    .contact-form-wrapper .section-label {
+        font-size: 0.65rem;
+        letter-spacing: 2px;
+    }
+
+    .contact-intro h2 {
+        font-size: 2.35rem;
+        line-height: 1.08;
+    }
+
+    .contact-intro-text {
+        padding-left: 16px;
+        border-left-width: 2px;
+    }
+
+    .contact-intro-text p {
+        font-size: 0.96rem;
+        line-height: 1.75;
+    }
+
+    .contact-details {
+        padding: 0 5% 70px;
+    }
+
+    .contact-detail-card {
+        padding: 30px 24px;
+    }
+
+    .contact-detail-number {
+        top: 18px;
+        right: 20px;
+        font-size: 2rem;
+    }
+
+    .contact-detail-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 20px;
+    }
+
+    .contact-detail-card h3 {
+        font-size: 1.15rem;
+    }
+
+    .contact-form-section {
+        padding: 60px 4%;
+    }
+
+    .contact-form-image {
+        min-height: 330px;
+    }
+
+    .contact-image-overlay {
+        right: 22px;
+        bottom: 25px;
+        left: 22px;
+    }
+
+    .contact-image-overlay span {
+        font-size: 0.65rem;
+        letter-spacing: 2px;
+    }
+
+    .contact-image-overlay h2 {
+        font-size: 2.35rem;
+    }
+
+    .contact-form-wrapper {
+        padding: 38px 22px;
+    }
+
+    .contact-form-wrapper h2 {
+        font-size: 2.25rem;
+        letter-spacing: -1px;
+    }
+
+    .contact-form-intro {
+        font-size: 0.95rem;
+    }
+
+    .contact-field input,
+    .contact-field select,
+    .contact-field textarea,
+    .contact-booking-form input,
+    .contact-booking-form select,
+    .contact-booking-form textarea {
+        font-size: 16px;
+    }
+
+    .contact-submit {
+        min-height: 54px;
+        font-size: 0.72rem;
+        letter-spacing: 1px;
+    }
+
+    .contact-whatsapp {
+        padding: 65px 5%;
+    }
+
+    .contact-whatsapp h2 {
+        font-size: 2.3rem;
+    }
+
+    .contact-whatsapp p {
+        font-size: 0.95rem;
+    }
+
+    .whatsapp-contact-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-social {
+        padding: 65px 5%;
+    }
+
+    .contact-social::before {
+        font-size: 5rem;
+        letter-spacing: -4px;
+    }
+
+    .contact-social h2 {
+        font-size: 2.35rem;
+    }
+
+    .contact-social p {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+    .navbar {
+        padding-right: 3%;
+        padding-left: 3%;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .nav-links {
+        gap: 9px;
+    }
+
+    .nav-links a {
+        font-size: 0.64rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-button,
+    .secondary-button,
+    .nav-button,
+    .package-button {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .contact-page-hero {
+        min-height: 540px;
+    }
+
+    .contact-hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .contact-intro h2 {
+        font-size: 2.1rem;
+    }
+
+    .contact-detail-card {
+        padding: 28px 20px;
+    }
+
+    .contact-form-wrapper {
+        padding: 35px 18px;
+    }
+
+    .contact-image-overlay h2 {
+        font-size: 2.1rem;
+    }
+
+    .contact-submit {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .creative-gallery-grid {
+        grid-auto-rows: 145px;
+    }
+
+    .footer {
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY AND REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Booking form validation messages */
+.form-error-summary {
+    margin-bottom: 20px;
+    padding: 16px;
+    border: 1px solid #c94c4c;
+    border-radius: 8px;
+    background: #fff4f2;
+    color: #842d2d;
+}
+
+.form-error-summary p {
+    margin: 8px 0 0;
+}
+
+.field-error {
+    display: block;
+    margin-top: 6px;
+    color: #b42318;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   END OF MAZUA SAFARIS STYLESHEET
+========================================================= */

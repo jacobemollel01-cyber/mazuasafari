@@ -1,0 +1,84 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Mazua Safaris | Discover Tanzania{% endblock %}</title>
+
+    <meta name="description"
+          content="{% block meta_description %}Discover Tanzania with Mazua Safaris. Explore wildlife safaris, Kilimanjaro adventures, cultural experiences and Zanzibar holidays.{% endblock %}">
+
+    <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="/" class="logo" aria-label="Mazua Safaris Home">
+            MAZUA <span>SAFARIS</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="/about/">About Us</a>
+            <a href="/safaris/">Safaris</a>
+            <a href="/destinations/">Destinations</a>
+            <a href="/packages/">Packages</a>
+            <a href="/gallery/">Gallery</a>
+            <a href="/contact/">Contact</a>
+        </nav>
+
+        <a href="/#booking" class="nav-button">
+            BOOK YOUR SAFARI
+        </a>
+    </header>
+
+    {% if messages %}
+        <div class="messages" role="status" aria-live="polite">
+            {% for message in messages %}
+                <div class="success-message">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="/" class="footer-logo">
+                    MAZUA <span>SAFARIS</span>
+                </a>
+
+                <p>Discover Tanzania. Experience Africa.</p>
+            </div>
+
+            <nav class="footer-links" aria-label="Footer navigation">
+                <a href="/">Home</a>
+                <a href="/about/">About Us</a>
+                <a href="/safaris/">Safaris</a>
+                <a href="/destinations/">Destinations</a>
+                <a href="/packages/">Packages</a>
+                <a href="/gallery/">Gallery</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mazua Safaris. All rights reserved.</p>
+            <p>Discover Tanzania. Experience Africa.</p>
+        </div>
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

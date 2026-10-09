@@ -1,0 +1,22 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+myworld/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Local database and uploaded data
+db.sqlite3
+media/
+
+# Generated files
+staticfiles/

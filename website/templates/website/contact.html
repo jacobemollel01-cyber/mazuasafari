@@ -1,0 +1,375 @@
+
+{% extends "website/base.html" %}
+
+{% block title %}Contact Us | Mazua Safaris{% endblock %}
+
+{% block meta_description %}Contact Mazua Safaris to plan your Tanzania wildlife safari, Kilimanjaro adventure, cultural journey or Zanzibar holiday. Send us your travel inquiry.{% endblock %}
+
+{% block content %}
+
+<!-- CONTACT HERO -->
+<section class="contact-page-hero">
+    <div class="contact-hero-content">
+        <div class="contact-hero-label">LET'S TALK TANZANIA</div>
+
+        <h1>
+            Your adventure<br>
+            starts with a <span>conversation.</span>
+        </h1>
+
+        <p>
+            Tell us what you are dreaming about.
+            Whether it is a safari, Kilimanjaro adventure,
+            cultural journey or Zanzibar escape, we're here
+            to help you plan it.
+        </p>
+    </div>
+</section>
+
+<!-- CONTACT INTRO -->
+<section class="contact-intro">
+    <div class="contact-intro-container">
+        <div>
+            <div class="section-label">CONTACT MAZUA SAFARIS</div>
+
+            <h2>
+                Let's Plan Your<br>
+                Tanzania Journey.
+            </h2>
+        </div>
+
+        <div class="contact-intro-text">
+            <p>
+                Have a question about a safari, destination,
+                accommodation or travel plan?
+            </p>
+
+            <p>
+                Get in touch with our team and tell us what
+                you would like to experience. We'll help you
+                turn your ideas into a journey.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT DETAILS -->
+<section class="contact-details">
+    <div class="contact-details-container">
+
+        <div class="contact-detail-card">
+            <div class="contact-detail-number">01</div>
+            <div class="contact-detail-icon">☎</div>
+
+            <div>
+                <h3>Phone / WhatsApp</h3>
+                <p>
+                    Speak with us directly about your
+                    Tanzania adventure.
+                </p>
+
+                <a
+                    href="https://wa.me/REPLACE_WITH_YOUR_NUMBER"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    CHAT ON WHATSAPP →
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-detail-card">
+            <div class="contact-detail-number">02</div>
+            <div class="contact-detail-icon">✉</div>
+
+            <div>
+                <h3>Email</h3>
+                <p>
+                    Send us your questions, plans or
+                    safari ideas.
+                </p>
+
+                <a href="mailto:ADD_YOUR_EMAIL">
+                    SEND AN EMAIL →
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-detail-card">
+            <div class="contact-detail-number">03</div>
+            <div class="contact-detail-icon">◉</div>
+
+            <div>
+                <h3>Tanzania</h3>
+                <p>
+                    We are based in Tanzania and specialise
+                    in journeys across the country.
+                </p>
+
+                <span class="contact-location">TANZANIA</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT FORM + IMAGE -->
+<section class="contact-form-section" id="contact-form">
+    <div class="contact-form-container">
+
+        <!-- IMAGE / INTRO -->
+        <div class="contact-form-image">
+            <div class="contact-image-overlay">
+                <span>DISCOVER TANZANIA</span>
+
+                <h2>
+                    Tell us<br>
+                    your story.
+                </h2>
+
+                <p>Every great journey begins with an idea.</p>
+            </div>
+        </div>
+
+        <!-- FORM -->
+        <div class="contact-form-wrapper">
+
+            <div class="section-label">SEND AN INQUIRY</div>
+
+            <h2>How Can We Help?</h2>
+
+            <p class="contact-form-intro">
+                Share a few details about your plans and
+                we'll get back to you.
+            </p>
+
+            {% if messages %}
+                <div class="contact-form-notices" aria-live="polite">
+                    {% for message in messages %}
+                        <div class="contact-notice {{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if contact_form.non_field_errors %}
+                <div class="form-error-summary" role="alert">
+                    <strong>Please check your submission:</strong>
+                    {% for error in contact_form.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if contact_form.errors %}
+                <div class="form-error-summary" role="alert">
+                    <strong>Please correct the highlighted fields.</strong>
+                    <p>Your entries have been kept where possible.</p>
+                </div>
+            {% endif %}
+
+            <form
+                class="booking-form contact-booking-form"
+                method="POST"
+                action="{% url 'contact' %}"
+                novalidate>
+
+                {% csrf_token %}
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-name">Full Name</label>
+                        {{ contact_form.full_name }}
+                        {% for error in contact_form.full_name.errors %}
+                            <span class="field-error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-email">Email Address</label>
+                        {{ contact_form.email }}
+                        {% for error in contact_form.email.errors %}
+                            <span class="field-error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-country">Country</label>
+                        {{ contact_form.country }}
+                        {% for error in contact_form.country.errors %}
+                            <span class="field-error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-phone">Phone / WhatsApp</label>
+                        {{ contact_form.phone }}
+                        {% for error in contact_form.phone.errors %}
+                            <span class="field-error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-travellers">Number of Travellers</label>
+                        {{ contact_form.travellers }}
+                        {% for error in contact_form.travellers.errors %}
+                            <span class="field-error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-days">Number of Days</label>
+                        {{ contact_form.days }}
+                        {% for error in contact_form.days.errors %}
+                            <span class="field-error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-arrival">Arrival Date</label>
+                        {{ contact_form.arrival }}
+                        {% for error in contact_form.arrival.errors %}
+                            <span class="field-error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-departure">Departure Date</label>
+                        {{ contact_form.departure }}
+                        {% for error in contact_form.departure.errors %}
+                            <span class="field-error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-destination">Preferred Destinations</label>
+                        {{ contact_form.destination }}
+                        {% for error in contact_form.destination.errors %}
+                            <span class="field-error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-accommodation">Accommodation Preference</label>
+                        {{ contact_form.accommodation }}
+                        {% for error in contact_form.accommodation.errors %}
+                            <span class="field-error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-budget">Estimated Budget</label>
+                    {{ contact_form.budget }}
+                    {% for error in contact_form.budget.errors %}
+                        <span class="field-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-requests">Special Requests or Message</label>
+                    {{ contact_form.requests }}
+                    {% for error in contact_form.requests.errors %}
+                        <span class="field-error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                <button
+                    type="submit"
+                    class="booking-button contact-submit">
+                    SEND INQUIRY <span>→</span>
+                </button>
+
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<!-- WHATSAPP CTA -->
+<section class="contact-whatsapp">
+    <div class="contact-whatsapp-content">
+
+        <div class="contact-whatsapp-icon">WA</div>
+
+        <div>
+            <div class="section-label">NEED A QUICK ANSWER?</div>
+
+            <h2>Talk to us on WhatsApp.</h2>
+
+            <p>
+                For quick questions and travel planning,
+                send us a message directly.
+            </p>
+        </div>
+
+        <a
+            href="https://wa.me/REPLACE_WITH_YOUR_NUMBER"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="whatsapp-contact-button">
+            CHAT WITH US <span>→</span>
+        </a>
+
+    </div>
+</section>
+
+<!-- SOCIAL / FINAL -->
+<section class="contact-social">
+    <div class="contact-social-inner">
+
+        <div class="section-label">FOLLOW THE JOURNEY</div>
+
+        <h2>Tanzania is waiting.</h2>
+
+        <p>
+            Follow Mazua Safaris for inspiration,
+            destinations and unforgettable moments
+            from Tanzania.
+        </p>
+
+        <div class="social-links">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                INSTAGRAM
+            </a>
+
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                FACEBOOK
+            </a>
+        </div>
+
+    </div>
+</section>
+
+{% if show_contact_errors %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const formSection = document.getElementById("contact-form");
+    const firstInvalidField = document.querySelector(
+        ".contact-booking-form .field-error"
+    );
+
+    if (formSection) {
+        formSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+
+    if (firstInvalidField) {
+        firstInvalidField.setAttribute("tabindex", "-1");
+        firstInvalidField.focus({ preventScroll: true });
+    }
+});
+</script>
+{% endif %}
+
+{% endblock %}
