@@ -1007,11 +1007,11 @@ textarea {
     margin: 0 auto;
 }
 
-.contact-intro h2 {
+.home-contact-intro h2 {
     color: var(--white);
 }
 
-.contact-intro > p {
+.home-contact-intro > p {
     max-width: 550px;
     color: rgba(255, 255, 255, 0.78);
 }
@@ -1034,7 +1034,7 @@ textarea {
     background: var(--white);
 }
 
-.contact-details {
+.home-contact-details {
     display: grid;
     gap: 22px;
 }
@@ -3277,3 +3277,32 @@ textarea {
 /* =========================================================
    END OF MAZUA SAFARIS STYLESHEET
 ========================================================= */
+
+/* Remove the MAZUA watermark from the Contact section */
+.contact-intro::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* Ensure Contact text remains readable */
+.contact .contact-intro h2 {
+    color: #ffffff !important;
+}
+
+.contact .contact-intro > p {
+    color: #e0e9e2 !important;
+}
+
+.contact .contact-intro .section-label {
+    color: #e6c989 !important;
+}
+
+.contact .contact-item p,
+.contact .contact-item a {
+    color: #ffffff !important;
+}
+
+.contact .contact-item .contact-label {
+    color: #e6c989 !important;
+}
+
